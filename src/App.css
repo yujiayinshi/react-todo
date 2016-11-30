@@ -36,6 +36,10 @@
   display: inline-block;
 }
 
-.active-button {
-  border-color: aquamarine;
+.list-container {
+  margin: 0 auto;
+  width: 50%;
 }
+
+
+
