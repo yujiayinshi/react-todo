@@ -144,11 +144,12 @@ class ToDoItem extends Component {
         this.props.delToDo(this.props.id);
     }
 
-    handleChange() {
+    handleChange(event) {
         this.props.completeToDo(this.props.id, this.props.todo);
     }
 
-    handleDoubleClick() {
+    handleDoubleClick(event) {
+        event.preventDefault();
         this.setState({
             editTodo: true
         });
@@ -189,21 +190,10 @@ class ToDoItem extends Component {
                             onKeyDown={this.handleChangeUpdate}
                             autoFocus
                         />) :
-                        (<span
-                            className={this.props.todo.complete ? 'complete-todo' : 'active-todo'}>{this.props.todo.name}</span>)
+                        (<span className={this.props.todo.complete ? 'complete-todo' : 'active-todo'}>{this.props.todo.name}</span>)
                     }
                 </span>
             </ListItem>
-            // <li className="list-item">
-            //     <input type="checkbox" checked={this.props.todo.complete} value={this.props.todo.complete} onChange={this.handleChange} />
-            //     <span onDoubleClick={this.handleDoubleClick} onBlur={this.handleBlur}>
-            //         {this.state.editTodo ?
-            //             (<input type="text" value={this.props.todo.name} onChange={this.handleChange4Edit} onKeyDown={this.handleChangeUpdate} autoFocus />) :
-            //             (<span className={this.props.todo.complete ? 'complete-todo' : 'active-todo'}>{this.props.todo.name}</span>)
-            //         }
-            //     </span>
-            //     <button onClick={this.handClick} className="del-button">x</button>
-            // </li>
         )
     }
 }
